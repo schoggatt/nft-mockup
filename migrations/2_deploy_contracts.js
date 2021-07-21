@@ -1,5 +1,5 @@
-const Color = artifacts.require("Color"); // Puts color on the blockchain
+const Coinja = artifacts.require("Coinja"); // Puts coinja on the blockchain
 
 module.exports = function(deployer) {
-  deployer.deploy(Color);
+  deployer.deploy(Coinja);
 };
