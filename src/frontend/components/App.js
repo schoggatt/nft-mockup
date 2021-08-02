@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Web3 from "web3";
 import "./App.css";
 import Coinja from "../../abis/Coinja.json";
-import ScrollingList from "./ScrollingList.js"
+import Tile from "./Tile.js"
 
 class App extends Component {
 
@@ -74,7 +74,7 @@ class App extends Component {
             target="_blank"
             rel="noopener noreferrer"
           >
-            Ninja Fighting Tokens
+            Brawler
           </a>
           <ul className="navbar-nav px-3">
             <li className="nav-item text-nowrap d-none d-sm-none d-sm-block">
@@ -83,28 +83,7 @@ class App extends Component {
           </ul>
         </nav> 
         <div className="container-fluid mt-5">
-          <div className="row">
-            <main role="main" className="col-lg-12 d-flex text-center">
-              <div className="content mr-auto ml-auto">
-                <h1>Issue Token</h1>
-                <form onSubmit={(event) => {
-                  event.preventDefault()
-                  this.mint()
-                }}>
-                  <input
-                    type='submit'
-                    className='btn btn-block btn-primary'
-                    value='MINT'
-                  />
-                </form>
-                <p>
-                  {this.state.totalSupply}
-                  <ScrollingList></ScrollingList>
-                </p>
-              </div>
-            </main>
-          </div>
-          <hr/>
+          <Tile tokenId={5}/>
         </div>
       </div>
     );
