@@ -1,4 +1,16 @@
 const { assert } = require('chai')
+const XMLHttpRequest = require('XMLHttpRequest').XMLHttpRequest
+
+function request_data(tokenId)
+{
+    var xmlhttp = new XMLHttpRequest();
+    var url = 'http://localhost:3000/' + tokenId
+    console.log("URL: " + url)
+
+    xmlhttp.open("GET", url, false);
+    xmlhttp.send();
+    return xmlhttp.responseText
+}
 
 const Coinja = artifacts.require('./Coinja.sol') 
 
@@ -54,6 +66,18 @@ contract('Coinja', (accounts) => {
 
             const totalSupply = await contract.totalSupply()
             assert.equal(4, totalSupply)
+        }) 
+    })
+
+    describe('Server Connectivity', async() => {
+
+        it('Print API Data.', async() => {
+            const result = await contract.mint()
+            const event = result.logs[0].args
+            const callReturn = request_data(event.tokenId.toNumber())
+            console.log("API Return: " + callReturn)
+            assert.equal(event.tokenId.toNumber(), 4)
+            assert.notEqual(callReturn, '')
         }) 
     })
 })

@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import Web3 from "web3";
 import "./App.css";
-import Coinja from "../abis/Coinja.json";
+import Coinja from "../../abis/Coinja.json";
+import ScrollingList from "./ScrollingList.js"
 
 class App extends Component {
 
@@ -98,6 +99,7 @@ class App extends Component {
                 </form>
                 <p>
                   {this.state.totalSupply}
+                  <ScrollingList></ScrollingList>
                 </p>
               </div>
             </main>

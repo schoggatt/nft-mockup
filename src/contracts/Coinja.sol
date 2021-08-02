@@ -8,8 +8,8 @@ contract Coinja is ERC721Full {
   constructor() ERC721Full("Coinja", "STAR") public {
   }
 
-  // E.G. color = "#FFFFFF"
   function mint() public { // Have to restrict access 
+    // Require a unique ID
     _mint(msg.sender, nextTokenId); // Etherium address of the person calling the method
     nextTokenId++;
   }
