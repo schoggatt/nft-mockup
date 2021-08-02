@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=IM+Fell+English+SC&family=Lato&display=swap');
+
+.nft-card-container {
+  position: relative;
+  text-align: center;
+  background-color: black;
+  width: 33%;
+  color: white;
+  box-shadow: 1px 2px 3px black;
+  /*font-family: 'Lato', sans-serif;*/
+  font-family: 'IM Fell English SC', serif;
+  align-items: stretch;
+}
+
+.top-right {
+  position: absolute;
+  top: 5%;
+  right: 5%;
+}
+
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.nft-image {
+  max-width: 100%;
+}
+
+.nft-text-container{
+    opacity: 0;
+    border: 2px outset red;
+}
+
+.nft-text-container:hover{
+    opacity: 1;
+    transition: opacity 1s ease-in-out
+}
+
+.nft-image-container:hover{
+    opacity: .7;
+    transition: opacity 1s ease-in-out
+} 
+
+.nft-name {
+  font-size: 2em;
+}
+
+.nft-collection {
+  font-size: medium;
+}
