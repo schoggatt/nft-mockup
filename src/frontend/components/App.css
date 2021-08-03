@@ -1,11 +1,28 @@
-/* Styles go here */
+@import url('https://fonts.googleapis.com/css2?family=IM+Fell+English+SC&family=Lato&display=swap');
 
 .token {
     height: 150px;
     width: 150px;
     border-radius: 50%;
     display: inline-block;
-  }
+}
+
+.navbar{
+  font-family: 'IM Fell English SC', serif;
+  color: white;
+}
+
+.navbar-title{
+  font-size: 2em;
+}
+
+a{
+  color:inherit
+}
+
+a:hover{
+  color:inherit
+}
 
 body{
   background-color: black;
