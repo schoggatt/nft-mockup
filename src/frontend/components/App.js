@@ -2,8 +2,9 @@ import React, { Component } from "react";
 import Web3 from "web3";
 import "./App.css";
 import Coinja from "../../abis/Coinja.json";
-import Tile from "./Tile.js"
 import TileBoard from "./TileBoard";
+import SlideShow from "./SlideShow";
+import {SlideShowData} from './SlideShowData'
 
 class App extends Component {
 
@@ -77,6 +78,7 @@ class App extends Component {
           </ul>
         </nav> 
         <div className="container-fluid mt-5">
+          <SlideShow slides={SlideShowData}/>
           <TileBoard/>
         </div>
       </div>
