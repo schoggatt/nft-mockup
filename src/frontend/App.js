@@ -1,12 +1,10 @@
 import React, { Component } from "react";
 import Web3 from "web3";
 import "./App.css";
-import Coinja from "../../abis/Coinja.json";
-import TileBoard from "./TileBoard";
-import SlideShow from "./SlideShow";
-import {SlideShowData} from './SlideShowData'
-import NavBar from './NavBar'
-import Footer from './Footer'
+import Coinja from "../abis/Coinja.json";
+import {BrowserRouter as Router, Route, Switch, Link, Redirect} from "react-router-dom"
+import MainPage from './pages/MainPage'
+import NotFoundPage from './pages/NotFoundPage'
 
 class App extends Component {
 
@@ -68,24 +66,16 @@ class App extends Component {
     };
   }
 
+  
+
   render() {
     return (
-      <div>
-        {/* <nav className="navbar">
-          <div class="navbar-title">Brawler</div>
-          <ul className="navbar-nav px-3">
-            <li className="nav-item text-nowrap d-none d-sm-none d-sm-block">
-              <small className="text-white"><span id="account">{this.state.account}</span></small>
-            </li>
-          </ul>
-        </nav>  */}
-        <NavBar/>
-        <div className="container-fluid mt-5">
-          <SlideShow slides={SlideShowData}/>
-          <TileBoard/>
-        </div>
-        <Footer/>
-      </div>
+      <Router>
+          <Switch>
+            <Route path="/" component={MainPage}/>
+            <Route component={NotFoundPage}/>
+          </Switch>
+      </Router>
     );
   }
 }
