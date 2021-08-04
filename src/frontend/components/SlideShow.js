@@ -7,7 +7,7 @@ const SlideShow = ({slides}) => {
 
   const[current, setCurrent] = React.useState(0)
   const length = slides.length
-  const delay = 10000
+  const delay = 15000
   const timeoutRef = React.useRef(null);
 
   function resetTimeout() {

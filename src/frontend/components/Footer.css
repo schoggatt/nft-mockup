@@ -1,0 +1,49 @@
+footer{
+    position: relative;
+    display: block;
+    /* background-image: url('https://dsm01pap001files.storage.live.com/y4mLMY0iwOskG8vuc_NW8ORXTHKn3wYnuVHqKiyq9tmhTpf8uEmugQzCJr-e0x88RcB9zzioNkQvtKSrkkFelm4mapoGXKxvPPynGnzk-U9vvdOVU6xjVb2AVAEu3aoc0-ATR5Fc4a4Bt1hlNifvwE62DE87RUdRY8xhCpin80jgkwWDSXRNrUaNjby2mpOSI9d?width=1002&height=150&cropmode=none');
+    background-size: 100% 100%; */
+    background-color: white;
+    color: black;
+    font-family: 'IM Fell English SC', serif;
+    height: 13vw;
+    width: 100%;
+    padding: 1vw;
+}
+
+#footer-table{
+    width:100%;
+}
+
+#footer-table td{
+    vertical-align: top;
+}
+
+#footer-table tr{
+    font-size: .9vw;
+}
+
+#footer-signup-container{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding-top: .5vw;
+    padding-bottom: .5vw;
+}
+
+#footer-signup-container p{
+    font-size: .8vw;
+}
+
+#footer-signup-container input[type="email" i]{
+    margin-right: .2vw;
+    width: 50%;
+}
+
+.footer-copyright{
+    font-size: .7vw;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Lato', sans-serif;
+}

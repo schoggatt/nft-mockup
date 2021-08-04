@@ -6,6 +6,7 @@ import TileBoard from "./TileBoard";
 import SlideShow from "./SlideShow";
 import {SlideShowData} from './SlideShowData'
 import NavBar from './NavBar'
+import Footer from './Footer'
 
 class App extends Component {
 
@@ -83,6 +84,7 @@ class App extends Component {
           <SlideShow slides={SlideShowData}/>
           <TileBoard/>
         </div>
+        <Footer/>
       </div>
     );
   }

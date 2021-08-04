@@ -2,13 +2,14 @@ nav{
     background-image: url('https://dsm01pap001files.storage.live.com/y4mRTkP8zkNUxOJIaubHxFzYCs1M1gBK8TSPG6bOKXFdNxnhsnvHCJv-QAlK-DRCAAIeam_F_lWo5fQnuM8tDe19KPy2rlbjOTiucYWHR0f3drhB8pjjG96tbCGf-0i4buB4eYziAotukyt7zeSQzP1SxJBQPs9KJx9-0QmoyzvkB0DjCCmLkYRE1WzaG6b5CrI?width=1002&height=150&cropmode=none');
     background-size: 100% 100%;
     font-family: 'IM Fell English SC', serif;
-    font-size: 6em;
+    height: 10vw;
     color: white;
     position: fixed;
     top: 0;
     width: 100%;
     text-align: center;
     z-index: 100;
+    font-size: 4vw;
 }
 
 .active {
@@ -20,4 +21,16 @@ nav{
     visibility: hidden;
     transition: all 0.5s;
     transform: translateY(-100%);
+}
+
+#nav-bar-items{
+    position: absolute;
+    font-size: 1.25vw;
+    right: 2vw;
+    top: 1vw;
+}
+
+#nav-bar-items li{
+    display: inline;
+    padding: 0vw 1vw 0vw 1vw;
 }

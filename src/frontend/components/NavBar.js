@@ -32,7 +32,14 @@ class NavBar extends React.Component{
     render()
     {
         console.log(this.state)
-        return <nav className={this.state.show ? "active" : "hidden"}>Brawler</nav>;
+        return <nav className={this.state.show ? "active" : "hidden"}>
+            Brawler
+            <ul id="nav-bar-items">
+                <li><a href="www.google.com">Marketplace</a></li>
+                <li>Collection</li>
+                <li>Play Now</li>
+            </ul>
+        </nav>;
     }
 
 }
