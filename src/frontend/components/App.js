@@ -5,6 +5,7 @@ import Coinja from "../../abis/Coinja.json";
 import TileBoard from "./TileBoard";
 import SlideShow from "./SlideShow";
 import {SlideShowData} from './SlideShowData'
+import NavBar from './NavBar'
 
 class App extends Component {
 
@@ -69,14 +70,15 @@ class App extends Component {
   render() {
     return (
       <div>
-        <nav className="navbar">
+        {/* <nav className="navbar">
           <div class="navbar-title">Brawler</div>
           <ul className="navbar-nav px-3">
             <li className="nav-item text-nowrap d-none d-sm-none d-sm-block">
               <small className="text-white"><span id="account">{this.state.account}</span></small>
             </li>
           </ul>
-        </nav> 
+        </nav>  */}
+        <NavBar/>
         <div className="container-fluid mt-5">
           <SlideShow slides={SlideShowData}/>
           <TileBoard/>

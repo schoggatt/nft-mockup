@@ -45,7 +45,6 @@
     position: absolute;
     top: 50%;
     left: 1vw;
-    z-index: 25;
     cursor: pointer;
 }
 
@@ -53,6 +52,5 @@
     position: absolute;
     top: 50%;
     right: 1vw;
-    z-index: 25;
     cursor: pointer;
 }

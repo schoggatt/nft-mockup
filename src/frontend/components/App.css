@@ -7,15 +7,6 @@
     display: inline-block;
 }
 
-.navbar{
-  font-family: 'IM Fell English SC', serif;
-  color: white;
-}
-
-.navbar-title{
-  font-size: 2em;
-}
-
 a{
   color:inherit
 }
