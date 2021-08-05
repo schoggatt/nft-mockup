@@ -1,11 +1,9 @@
 const { assert } = require('chai')
 const XMLHttpRequest = require('XMLHttpRequest').XMLHttpRequest
 
-function request_data(tokenId)
+function request_data(url)
 {
     var xmlhttp = new XMLHttpRequest();
-    var url = 'http://localhost:3000/' + tokenId
-    console.log("URL: " + url)
 
     xmlhttp.open("GET", url, false);
     xmlhttp.send();
@@ -63,23 +61,60 @@ contract('Coinja', (accounts) => {
             await contract.mint()
 
             const tokenURI = await contract.tokenURI(0)
-            console.log(tokenURI)
-            assert.notEqual(tokenURI, "")
+            assert.equal(tokenURI, "http://localhost:3000/0")
 
             const totalSupply = await contract.totalSupply()
-            console.log(totalSupply)
             assert.equal(4, totalSupply)
         }) 
     })
 
     describe('Server Connectivity', async() => {
 
-        it('Print API Data.', async() => {
+        it('Print API Data for a NFT.', async() => {
             const result = await contract.mint()
             const event = result.logs[0].args
-            const callReturn = request_data(event.tokenId.toNumber())
+
+            const uri = await contract.tokenURI(4)
+            const callReturn = request_data(uri)
+
             assert.equal(event.tokenId.toNumber(), 4)
             assert.notEqual(callReturn, '')
         }) 
+
+        it('Print API Data for all NFTs.', async() => {
+            const totalSupply = await contract.totalSupply()
+            for(let i = 0; i < totalSupply; i++)
+            {
+                const uri = await contract.tokenURI(i)
+                assert.equal(uri, "http://localhost:3000/" + i)
+            }
+        })
+    })
+
+    describe('Ownership', async() => {
+        
+        it('Check if the NFTs are owned.', async() => {
+            const totalSupply = await contract.totalSupply()
+            for(let i = 0; i < totalSupply; i++)
+            {
+                const owner = await contract.ownerOf(i)
+                assert.notEqual(owner, '')
+            }
+        })
+
+    })
+
+    describe('Burn', async() => {
+        
+        it('Check if NFTs can be burned.', async() => {
+            const initialTotalSupply = await contract.totalSupply()
+            console.log(initialTotalSupply)
+            await contract.burn(0)
+            await contract.burn(1)
+            const totalSupply = await contract.totalSupply()
+            console.log(totalSupply)
+            assert.equal(totalSupply, initialTotalSupply) // Does not do anything need to look into better testing 
+        })
+
     })
 })

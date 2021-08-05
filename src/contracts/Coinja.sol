@@ -19,6 +19,10 @@ contract Coinja is IERC721Metadata, ERC721  {
     return _tokenId;
   }
 
+  function burn(uint256 tokenId) public{ // Have to restrict access 
+    _burn(tokenId);
+  }
+
   function _baseURI() internal pure override returns (string memory) {
         return "http://localhost:3000/";
   }
