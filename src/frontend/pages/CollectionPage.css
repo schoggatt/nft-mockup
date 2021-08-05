@@ -1,0 +1,11 @@
+#woo{
+    position: absolute;
+    color:white;
+    text-align: center;
+    height: 300px;
+}
+
+#woo button{
+    background-color: white;
+    margin: 1em;
+}
