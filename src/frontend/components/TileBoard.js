@@ -28,18 +28,19 @@ class TileBoard extends React.Component {
         return (
             <div>
                 <table>
-                    <tr>
-                        <td><Tile tokenId={0} /></td>
-                        <td><Tile tokenId={3} /></td>
-                        <td><Tile tokenId={5} /></td>
-                    </tr>
-                    <tr>
-                        <td><Tile tokenId={1} /></td>
-                        <td><Tile tokenId={2} /></td>
-                        <td><Tile tokenId={4} /></td>
-                    </tr>
+                    <tbody>
+                        <tr>
+                            <td><Tile tokenId={0} /></td>
+                            <td><Tile tokenId={3} /></td>
+                            <td><Tile tokenId={5} /></td>
+                        </tr>
+                        <tr>
+                            <td><Tile tokenId={1} /></td>
+                            <td><Tile tokenId={2} /></td>
+                            <td><Tile tokenId={4} /></td>
+                        </tr>
+                    </tbody>
                 </table>
-                
             </div>
         );
     }

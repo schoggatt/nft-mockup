@@ -34,28 +34,23 @@ class CollectionPage extends React.Component{
     
         const networkId = await web3.eth.net.getId();
         const networkData = Coinja.networks[networkId];
-        console.log(networkData)
+
         if (networkData) {
           const abi = Coinja.abi;
           const address = networkData.address;
-          console.log(address)
+          
           const contract = new web3.eth.Contract(abi, address);
           this.setState({ contract });
-          const totalSupply = await contract.methods.totalSupply().call();
-          this.setState({ totalSupply });
+
           const balance = await web3.eth.getBalance(this.state.account) / 1e18
           this.setState({balance})
-          console.log(balance)
-          const tokenURI = await contract.methods.tokenURI(5).call();
-          this.setState({tokenURI})
-          console.log(tokenURI)
         } else {
           window.alert("Smart contract not deployed to detected network.");
         }
       }
 
       mint = () => {
-        this.state.contract.methods.mint("abc").send({ from: this.state.account })
+        this.state.contract.methods.mint().send({ from: this.state.account })
         .once('receipt', (receipt) => {
           this.setState({
             newCoinId: [...this.state.newCoinId]
@@ -63,16 +58,30 @@ class CollectionPage extends React.Component{
         })
       }
 
-      async getNFTMetadata() {
-        
+      getNFTMetadata = () => {
+          const getTokenURI = async () => {
+            const contract = this.state.contract;
+            const tokenURI = await contract.methods.tokenURI(0).call();
+            this.setState({tokenURI})
+          }
+          getTokenURI();
       }
+
+      getTotalSupply = () => {
+        const getTotalSupply = async () => {
+          const contract = this.state.contract;
+          const totalSupply = await contract.methods.totalSupply().call();
+          console.log(totalSupply)
+        }
+        getTotalSupply();
+    }
 
       constructor(props) {
         super(props);
         this.state = {
           account: "",
           contract: null,
-          totalSupply: 0,
+          totalSupply: "",
           newCoinId: 0 ,
           balance: 0,
           address: "",
@@ -93,7 +102,7 @@ class CollectionPage extends React.Component{
                 </ul>
                 <button onClick={this.mint}>Mint</button>
                 <button onClick={this.getNFTMetadata}>Get</button>
-                <Footer/>
+                <button onClick={this.getTotalSupply}>Get Supply</button>
             </div>
         );
     }

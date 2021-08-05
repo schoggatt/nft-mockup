@@ -2,7 +2,8 @@ import React, {Component} from 'react'
 import "./Footer.css"
 
 /*
-    Need to implement mailchimp package for a mailing app.
+    Need to implement mailchimp package for a mailing app. 
+    FIX DOM NESTING
 */
 
 class Footer extends Component{
@@ -30,6 +31,7 @@ class Footer extends Component{
         return(
             <footer>
                 <table id="footer-table">
+                    <tbody>
                     <tr>
                         <td width="25%">
                             <th>Contact</th>
@@ -79,6 +81,7 @@ class Footer extends Component{
                     <tr width="100%">
                         <div className="footer-copyright">©2021 Brawler, Inc. All Rights Reserved</div>
                     </tr>
+                    </tbody>
                 </table>
             </footer>
         );

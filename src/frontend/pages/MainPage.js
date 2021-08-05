@@ -42,8 +42,6 @@ class MainPage extends Component {
       const address = networkData.address;
       const contract = new web3.eth.Contract(abi, address);
       this.setState({ contract });
-      const totalSupply = await contract.methods.totalSupply().call();
-      this.setState({ totalSupply });
     } else {
       window.alert("Smart contract not deployed to detected network.");
     }
@@ -56,6 +54,7 @@ class MainPage extends Component {
         newCoin: [...this.s]
       })
     })
+    console.log("minted")
   }
 
   constructor(props) {

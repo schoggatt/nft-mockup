@@ -44,8 +44,6 @@ class App extends Component {
       const contract = new web3.eth.Contract(abi, address);
       
       this.setState({ contract });
-      const totalSupply = await contract.methods.totalSupply().call();
-      this.setState({ totalSupply });
     } else {
       window.alert("Smart contract not deployed to detected network.");
     }

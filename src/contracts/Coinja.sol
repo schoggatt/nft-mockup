@@ -1,20 +1,31 @@
+// SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
 import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
+import "@openzeppelin/contracts/token/ERC721/extensions/IERC721Metadata.sol";
 
-contract Coinja is ERC721 {
-  uint256 public _tokenIds;
+contract Coinja is IERC721Metadata, ERC721  {
+  uint256 public _tokenId;
+  uint256[] private _allTokens;
 
-  constructor() ERC721("Coinja", "STAR") public {
-    _setBaseURI("genitalwarts://");
+  constructor() ERC721("Coinja", "STAR") {
   }
 
-  function mint(string memory metadataURI) public returns (uint256){ // Have to restrict access 
-    // Require a unique ID
-    _tokenIds++;
-    _mint(msg.sender, _tokenIds); // Etherium address of the person calling the method
-    _setTokenURI(_tokenIds, metadataURI);
-    return _tokenIds;
+  function mint() public returns (uint256){ // Have to restrict access 
+    _mint(msg.sender, _tokenId);
+    _allTokens.push(_tokenId);
+    tokenURI(_tokenId);
+    _tokenId++;
+    return _tokenId;
+  }
+
+  function _baseURI() internal pure override returns (string memory) {
+        return "http://localhost:3000/";
+  }
+
+  
+  function totalSupply() public view virtual returns (uint256) {
+        return _allTokens.length;
   }
 
 }
