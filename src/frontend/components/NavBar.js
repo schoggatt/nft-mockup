@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import "./NavBar.css";
+import {Link} from 'react-router-dom'
 
 class NavBar extends React.Component{
 
@@ -33,11 +34,11 @@ class NavBar extends React.Component{
     {
         console.log(this.state)
         return <nav className={this.state.show ? "active" : "hidden"}>
-            Brawler
+            <Link to="/">Brawler</Link>
             <ul id="nav-bar-items">
-                <li><a href="www.google.com">Marketplace</a></li>
-                <li>Collection</li>
-                <li>Play Now</li>
+                <Link to="/marketplace"><li>Marketplace</li></Link>
+                <Link to="/collection"><li>Collection</li></Link>
+                <Link to="play"><li>Play Now</li></Link>
             </ul>
         </nav>;
     }

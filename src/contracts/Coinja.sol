@@ -1,17 +1,20 @@
-pragma solidity 0.5.0;
+pragma solidity ^0.8.0;
 
-import "./ERC721Full.sol";
+import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 
-contract Coinja is ERC721Full {
-  uint public nextTokenId;
+contract Coinja is ERC721 {
+  uint256 public _tokenIds;
 
-  constructor() ERC721Full("Coinja", "STAR") public {
+  constructor() ERC721("Coinja", "STAR") public {
+    _setBaseURI("genitalwarts://");
   }
 
-  function mint() public { // Have to restrict access 
+  function mint(string memory metadataURI) public returns (uint256){ // Have to restrict access 
     // Require a unique ID
-    _mint(msg.sender, nextTokenId); // Etherium address of the person calling the method
-    nextTokenId++;
+    _tokenIds++;
+    _mint(msg.sender, _tokenIds); // Etherium address of the person calling the method
+    _setTokenURI(_tokenIds, metadataURI);
+    return _tokenIds;
   }
 
 }

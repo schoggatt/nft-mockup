@@ -48,7 +48,7 @@ contract('Coinja', (accounts) => {
     describe('Minting', async() => {
 
         it('Creates a new token.', async() => {
-            const result = await contract.mint()
+            const result = await contract.mint("0")
             const totalSupply = await contract.totalSupply()
             assert.equal(totalSupply, 1)
             const event = result.logs[0].args
@@ -60,9 +60,9 @@ contract('Coinja', (accounts) => {
     describe('Indexing', async() => {
 
         it('List Coinjas.', async() => {
-            await contract.mint()
-            await contract.mint()
-            await contract.mint()
+            await contract.mint("0")
+            await contract.mint("0")
+            await contract.mint("0")
 
             const totalSupply = await contract.totalSupply()
             assert.equal(4, totalSupply)
@@ -72,7 +72,7 @@ contract('Coinja', (accounts) => {
     describe('Server Connectivity', async() => {
 
         it('Print API Data.', async() => {
-            const result = await contract.mint()
+            const result = await contract.mint("0")
             const event = result.logs[0].args
             const callReturn = request_data(event.tokenId.toNumber())
             console.log("API Return: " + callReturn)

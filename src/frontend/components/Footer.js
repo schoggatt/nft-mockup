@@ -1,6 +1,10 @@
 import React, {Component} from 'react'
 import "./Footer.css"
 
+/*
+    Need to implement mailchimp package for a mailing app.
+*/
+
 class Footer extends Component{
 
     constructor()

@@ -1,13 +1,14 @@
 import React, {Component} from 'react'
+import {withRouter} from 'react-router';
 
-class NotFoundPage extends Component{
+class NotFoundPage extends React.Component{
 
     constructor()
     {
         super();
     }
 
-    return()
+    render()
     {
         return(
             <p>404 Not Found!</p>
@@ -15,4 +16,4 @@ class NotFoundPage extends Component{
     }
 }
 
-export default NotFoundPage;
+export default withRouter(NotFoundPage);

@@ -5,6 +5,9 @@ import Coinja from "../abis/Coinja.json";
 import {BrowserRouter as Router, Route, Switch, Link, Redirect} from "react-router-dom"
 import MainPage from './pages/MainPage'
 import NotFoundPage from './pages/NotFoundPage'
+import MarketplacePage from "./pages/MarketplacePage";
+import CollectionPage from "./pages/CollectionPage";
+import PlayNowPage from "./pages/PlayNowPage";
 
 class App extends Component {
 
@@ -39,6 +42,7 @@ class App extends Component {
       const abi = Coinja.abi;
       const address = networkData.address;
       const contract = new web3.eth.Contract(abi, address);
+      
       this.setState({ contract });
       const totalSupply = await contract.methods.totalSupply().call();
       this.setState({ totalSupply });
@@ -72,8 +76,10 @@ class App extends Component {
     return (
       <Router>
           <Switch>
-            <Route path="/" component={MainPage}/>
-            <Route component={NotFoundPage}/>
+            <Route exact path="/" component={MainPage}/>
+            <Route path="/marketplace" component={MarketplacePage}/>
+            <Route path="/collection" component={CollectionPage}/>
+            <Route path="/play" component={PlayNowPage}/>
           </Switch>
       </Router>
     );

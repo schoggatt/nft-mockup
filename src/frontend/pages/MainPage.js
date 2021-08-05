@@ -6,6 +6,7 @@ import SlideShow from "../components/SlideShow";
 import {SlideShowData} from '../components/SlideShowData'
 import NavBar from '../components/NavBar'
 import Footer from '../components/Footer'
+import {withRouter} from 'react-router';
 
 class MainPage extends Component {
 
@@ -83,4 +84,4 @@ class MainPage extends Component {
   }
 }
 
-export default MainPage;
+export default withRouter(MainPage);
