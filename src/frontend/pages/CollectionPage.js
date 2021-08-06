@@ -7,6 +7,7 @@ import Coinja from "../../abis/Coinja.json";
 import "./CollectionPage.css";
 import Web3 from "web3";
 import Axios from 'axios'
+import UseAllNFT from '../hooks/UseAllNFT'
 
 class CollectionPage extends React.Component {
 
@@ -81,8 +82,10 @@ class CollectionPage extends React.Component {
     getNFTMetadata()
   }
 
-  getOwnedNFT = () => {
-    
+  getAllNFT = async () => {
+    const tokenMetadata = await UseAllNFT(this.state.contract)
+    console.log(tokenMetadata)
+    this.setState({tokenMetadata})
   }
 
   getTotalSupply = () => {
@@ -104,7 +107,7 @@ class CollectionPage extends React.Component {
       balance: 0,
       address: "",
       tokenURI: "",
-      tokenMetadata: [],
+      tokenMetadata: null,
     };
   }
 
@@ -122,6 +125,7 @@ class CollectionPage extends React.Component {
         <button onClick={this.mint}>Mint</button>
         <button onClick={this.getNFTMetadata}>Get</button>
         <button onClick={this.getTotalSupply}>Get Supply</button>
+        <button onClick={this.getAllNFT}>Get All NFT</button>
       </div>
     );
   }
