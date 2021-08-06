@@ -104,17 +104,17 @@ contract('Coinja', (accounts) => {
 
     })
 
-    describe('Burn', async() => {
+    // describe('Burn', async() => {
         
-        it('Check if NFTs can be burned.', async() => {
-            const initialTotalSupply = await contract.totalSupply()
-            console.log(initialTotalSupply)
-            await contract.burn(0)
-            await contract.burn(1)
-            const totalSupply = await contract.totalSupply()
-            console.log(totalSupply)
-            assert.equal(totalSupply, initialTotalSupply) // Does not do anything need to look into better testing 
-        })
+    //     it('Check if NFTs can be burned.', async() => {
+    //         const initialTotalSupply = await contract.totalSupply()
+    //         console.log(initialTotalSupply)
+    //         await contract.burn(0)
+    //         await contract.burn(1)
+    //         const totalSupply = await contract.totalSupply()
+    //         console.log(totalSupply)
+    //         assert.equal(totalSupply, initialTotalSupply) // Does not do anything need to look into better testing 
+    //     })
 
-    })
+    // })
 })

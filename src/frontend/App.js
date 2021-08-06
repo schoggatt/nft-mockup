@@ -49,15 +49,6 @@ class App extends Component {
     }
   }
 
-  mint = () => {
-    this.state.contract.methods.mint().send({ from: this.state.account })
-    .once('receipt', (receipt) => {
-      this.setState({
-        newCoin: [...this.s]
-      })
-    })
-  }
-
   constructor(props) {
     super(props);
     this.state = {
